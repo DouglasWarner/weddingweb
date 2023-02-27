@@ -1,0 +1,71 @@
+
+/* // BODY
+            Container(
+                color: secondaryColor,
+                padding: const EdgeInsets.symmetric(vertical: 200.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                      SizedBox(
+                          height: 150,
+                          child: Text("Lo que sea", style: Theme.of(context).textTheme.headline2?.copyWith(color: primaryColor))),
+                      SizedBox(
+                          height: 20,
+                          child: Text("Juntos para siempre el 08 de Julio de 2023",
+                              style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor))),
+                      SizedBox(
+                          height: 20,
+                          child: Text("7:30 de la tarde", style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor))),
+                      SizedBox(
+                          height: 40,
+                          child: Text("Valtari Eventos", style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor))),
+                      SizedBox(
+                          height: 50,
+                          child: OutlinedButton(
+                            onPressed: () => _showMyDialog(),
+                            child: Text("Haz click aqui para confirmar", style: TextStyle(color: primaryColor)),
+                          ))
+                    ]),
+                    Column(
+                      children: const [
+                        Image(image: AssetImage('images/image1.png'), width: 100, fit: BoxFit.cover),
+                      ],
+                    ),
+                  ],
+                )),
+
+            // FOOTER
+            Container(
+                padding: const EdgeInsets.symmetric(vertical: 200.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: const [
+                        Image(image: AssetImage('images/image1.png'), width: 100, fit: BoxFit.cover),
+                      ],
+                    ),
+                    Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                      SizedBox(height: 150, child: Text("Lo que sea", style: Theme.of(context).textTheme.headline2)),
+                      SizedBox(
+                          height: 20,
+                          child: Text("Juntos para siempre el 08 de Julio de 2023",
+                              style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColor))),
+                      SizedBox(
+                          height: 20,
+                          child: Text("7:30 de la tarde", style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColor))),
+                      SizedBox(
+                          height: 40,
+                          child: Text("Valtari Eventos", style: TextStyle(fontWeight: FontWeight.bold, color: secondaryColor))),
+                      SizedBox(
+                          height: 50,
+                          child: OutlinedButton(
+                            onPressed: null,
+                            child: Text("Haz click aqui para confirmar", style: TextStyle(color: secondaryColor)),
+                          ))
+                    ]),
+                  ],
+                ))
+      //   ],
+      // )*/
