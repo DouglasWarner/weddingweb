@@ -5,7 +5,6 @@ import 'package:my_wedding_web/Values/MyColors.dart';
 import 'package:my_wedding_web/Widgets/Map.dart';
 import 'package:my_wedding_web/model/MyLocation.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:google_maps_flutter_web/google_maps_flutter_web.dart';
 
 import '../base/BaseStateless.dart';
 import '../model/InfoTabContent.dart';
@@ -20,6 +19,7 @@ class InfoContent extends BaseStateless {
     init(context);
 
     return Container(
+        padding: responsiveApp.edgeInsetsApp.allLargeEdgeInsets,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,7 +58,9 @@ class InfoContent extends BaseStateless {
             (content.direccion != null) ? Padding(
               padding: responsiveApp.edgeInsetsApp.allSmallEdgeInsets,
               child: locationInfo(context, content.direccion, content.latlng),
-            ): SizedBox()
+            ): SizedBox(),
+
+            SizedBox(height: responsiveApp.setHeight(40),)
           ],
         )
     );
