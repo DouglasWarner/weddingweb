@@ -1,1 +1,0 @@
-String get BACKGROUND_IMAGE => 'images/image-3.jpg';
