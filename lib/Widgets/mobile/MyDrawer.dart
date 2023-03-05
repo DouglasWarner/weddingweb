@@ -90,13 +90,13 @@ class _MyDrawer extends BaseState<MyDrawer> {
       //     title: GUEST_BOOK_STRING,
       //     icon: Icons.book_rounded,
       //     selected: GuestListPage.index == widget.pageIndex),
-      // getItem(
-      //     onTap: () {
-      //       Beamer.of(context).beamToNamed(MusicPage.route, stacked: false);
-      //     },
-      //     title: MUSIC_STRING,
-      //     icon: Icons.queue_music,
-      //     selected: MusicPage.index == widget.pageIndex),
+      getItem(
+          onTap: () {
+            Beamer.of(context).beamToNamed(MusicPage.route, stacked: false);
+          },
+          title: MUSIC_STRING,
+          icon: Icons.queue_music,
+          selected: MusicPage.index == widget.pageIndex),
     ];
   }
 

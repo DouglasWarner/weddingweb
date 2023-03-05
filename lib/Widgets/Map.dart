@@ -1,11 +1,12 @@
+import 'dart:html';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../base/BaseState.dart';
-import '../model/MyLocation.dart';
 
 class MyGoogleMap extends StatefulWidget {
-  MyLocation location;
+  String location;
 
   MyGoogleMap(this.location, {super.key});
 
@@ -14,7 +15,6 @@ class MyGoogleMap extends StatefulWidget {
 }
 
 class _MyGoogleMap extends BaseState<MyGoogleMap> {
-  late GoogleMapController mapsController;
   bool showMaps = true;
 
   @override
@@ -28,27 +28,30 @@ class _MyGoogleMap extends BaseState<MyGoogleMap> {
             width: responsiveApp.setWidth(700),
             padding: responsiveApp.edgeInsetsApp.allLargeEdgeInsets,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            child: GoogleMap(
-              rotateGesturesEnabled: false,
-              compassEnabled: false,
-              myLocationEnabled: false,
-              myLocationButtonEnabled: false,
-              initialCameraPosition: CameraPosition(target: LatLng(widget.location.lat, widget.location.lng), zoom: 15),
-              onMapCreated: (controller) {
-                setState(() {
-                  mapsController = controller;
-                });
-              },
-              markers: {
-                  Marker(
-                      position: LatLng(widget.location.lat, widget.location.lng),
-                      markerId: MarkerId("Position")
-                  )
-              },
-              mapType: MapType.normal,
-            ),
+            child: getMap(widget.location)
           )
       : CircularProgressIndicator(),
+    );
+  }
+
+  Widget getMap(String location) {
+    String htmlId = "$location.hashCode";
+
+    IFrameElement frame = IFrameElement();
+    // frame.height = "400";
+    // frame.width = "600";
+    frame.src = location;
+    frame.style.border = "none";
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+        htmlId,
+        (int viewId) => frame
+    );
+
+    return HtmlElementView(
+        key: UniqueKey(),
+        viewType: htmlId
     );
   }
 

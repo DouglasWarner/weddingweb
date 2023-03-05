@@ -6,6 +6,7 @@ import 'package:my_wedding_web/Pages/PhotoPage.dart';
 import 'package:my_wedding_web/Widgets/HeaderButton.dart';
 import 'package:my_wedding_web/base/BaseState.dart';
 
+import '../Pages/MusicPage.dart';
 import '../Util/SizingInfo.dart';
 import '../Values/MyColors.dart';
 import '../Values/StringApp.dart';
@@ -92,8 +93,8 @@ class _HeaderState extends BaseState<Header> {
     // HeaderButton(GuestListPage.index, GUEST_BOOK_STRING, widget.pageIndex, () {
     //   Beamer.of(context).beamToNamed(GuestListPage.route, stacked: false);
     // }),
-    // HeaderButton(MusicPage.index, MUSIC_STRING, widget.pageIndex, () {
-    //   Beamer.of(context).beamToNamed(MusicPage.route, stacked: false);
-    // }),
+    HeaderButton(MusicPage.index, MUSIC_STRING, widget.pageIndex, () {
+      Beamer.of(context).beamToNamed(MusicPage.route, stacked: false);
+    }),
   ];
 }

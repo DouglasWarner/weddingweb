@@ -47,26 +47,26 @@ class _InfoPage extends BaseState<InfoPage> {
             scrollDirection: Axis.vertical,
             primary: true,
             padding: responsiveApp.edgeInsetsApp.allLargeEdgeInsets,
-            children: [
-              GridView.builder(
-                itemCount: InfoType.values.length,
-                primary: true,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: responsiveApp.setWidth(400),
-                  mainAxisExtent: responsiveApp.setHeight(50),
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 8.0), itemBuilder: (context, index) {
-                    return TabButton(index, InfoType.values[index].getString(), tabIndex, (value) => onTap(value));
-                  },),
-              SizedBox(height: responsiveApp.setHeight(50),),
-              ListView.builder(
-                  itemCount: content.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return InfoContent(content: content[index]);
-                  })
-            ]));
+            children: List.generate(content.length + 1, (index) {
+              return (index == 0) ?
+                  GridView.builder(
+                    itemCount: InfoType.values.length,
+                    padding: responsiveApp.edgeInsetsApp.verticalSmallEdgeInsets,
+                    primary: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: responsiveApp.setWidth(400),
+                        mainAxisExtent: responsiveApp.setHeight(50),
+                        crossAxisSpacing: 8.0,
+                        mainAxisSpacing: 8.0), itemBuilder: (context, index) {
+                      return TabButton(index, InfoType.values[index].getString(), tabIndex, (value) => onTap(value));
+                    },
+                  )
+                : InfoContent(content: content[index-1]);
+              },
+            )
+        )
+    );
   }
 }
