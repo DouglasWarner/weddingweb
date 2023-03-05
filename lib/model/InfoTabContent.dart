@@ -9,7 +9,7 @@ class InfoTabContent {
   String? descripcion;
   String? redSocial;
   String? direccion;
-  MyLocation? latlng;
+  String? mapLocation;
 
   InfoTabContent(
   {required this.title,
@@ -20,7 +20,7 @@ class InfoTabContent {
     required this.descripcion,
     required this.redSocial,
     required this.direccion,
-    required this.latlng,}
+    required this.mapLocation,}
   );
 }
 
@@ -49,7 +49,7 @@ List<InfoTabContent> infoContent = [
     descripcion: null,
     redSocial: "https://www.instagram.com/valtari_eventos/",
     direccion: "Carretera Churriana-Cártama, Km. 6 Bajo, 29130, Alhaurín de la Torre (Málaga)",
-    latlng: MyLocation(lat: 36.694717522097065, lng: -4.562684159841111)
+    mapLocation: "https://maps.google.com/maps?q=valtari%20eventos&t=&z=13&ie=UTF8&iwloc=&output=embed"
   ),
 
   InfoTabContent(
@@ -61,7 +61,7 @@ List<InfoTabContent> infoContent = [
     descripcion: null,
     redSocial: null,
     direccion: "Plaza de la Independencia, 12, 29620, Torremolinos (Málaga)",
-    latlng: MyLocation(lat: 36.624664496307275, lng: -4.50112462915508)
+    mapLocation: "https://maps.google.com/maps?q=hotel%20torremolinos%20centro%20&t=&z=17&ie=UTF8&iwloc=&output=embed"
   ),
 
   InfoTabContent(
@@ -73,7 +73,7 @@ List<InfoTabContent> infoContent = [
     descripcion: null,
     redSocial: null,
     direccion: null,
-    latlng: null
+    mapLocation: null
   ),
 
   InfoTabContent(
@@ -85,7 +85,7 @@ List<InfoTabContent> infoContent = [
       descripcion: "Disponible con sillas para bebes",
       redSocial: null,
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
   InfoTabContent(
@@ -97,7 +97,7 @@ List<InfoTabContent> infoContent = [
       descripcion: "Disponible con sillas para bebes",
       redSocial: null,
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
   InfoTabContent(
@@ -109,7 +109,7 @@ List<InfoTabContent> infoContent = [
     descripcion: null,
     redSocial: "https://www.instagram.com/miragal_fotografia/",
     direccion: null,
-    latlng: null
+    mapLocation: null
   ),
 
   InfoTabContent(
@@ -121,7 +121,7 @@ List<InfoTabContent> infoContent = [
       descripcion: null,
       redSocial: "https://www.instagram.com/fotomatonandalucia/",
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
   InfoTabContent(
@@ -133,7 +133,7 @@ List<InfoTabContent> infoContent = [
       descripcion: null,
       redSocial: "www.instagram.com/mi_dulce_valeria/",
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
   InfoTabContent(
@@ -145,7 +145,7 @@ List<InfoTabContent> infoContent = [
       descripcion: null,
       redSocial: "https://www.instagram.com/aries_floristas/",
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
   InfoTabContent(
@@ -157,7 +157,7 @@ List<InfoTabContent> infoContent = [
       descripcion: null,
       redSocial: "https://www.instagram.com/deseadamakeup/",
       direccion: null,
-      latlng: null
+      mapLocation: null
   ),
 
 ];

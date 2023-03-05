@@ -23,7 +23,7 @@ class _MusicPage extends BaseState<MusicPage> {
         appBar: Header(opacity, MusicPage.index),
         drawer: const MyDrawer(pageIndex: MusicPage.index),
         body: const Center(
-          child: Text("IN DEVELOP"),
+          child: Text("IN DEVELOPMENT"),
         ));
   }
 }

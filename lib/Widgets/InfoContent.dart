@@ -57,7 +57,7 @@ class InfoContent extends BaseStateless {
 
             (content.direccion != null) ? Padding(
               padding: responsiveApp.edgeInsetsApp.allSmallEdgeInsets,
-              child: locationInfo(context, content.direccion, content.latlng),
+              child: locationInfo(context, content.direccion, content.mapLocation),
             ): SizedBox(),
 
             SizedBox(height: responsiveApp.setHeight(40),)
@@ -66,7 +66,7 @@ class InfoContent extends BaseStateless {
     );
   }
 
-  Widget locationInfo(BuildContext context, String? location, MyLocation? latLng) => Column(
+  Widget locationInfo(BuildContext context, String? location, String? mapLocation) => Column(
     children: [
       Container(
         decoration: BoxDecoration(border: Border(bottom: BorderSide(color: secondaryColor, width: 2))),
@@ -82,7 +82,7 @@ class InfoContent extends BaseStateless {
         child: infoText(context, "", location!),
       ),
 
-      (latLng != null) ? MyGoogleMap(latLng) : SizedBox()
+      (mapLocation != null) ? MyGoogleMap(mapLocation) : SizedBox()
     ],
   );
 
