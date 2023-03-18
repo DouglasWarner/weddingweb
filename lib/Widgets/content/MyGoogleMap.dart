@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
-import '../base/BaseState.dart';
+import '../../base/BaseState.dart';
 
 class MyGoogleMap extends StatefulWidget {
   String location;
@@ -38,8 +38,6 @@ class _MyGoogleMap extends BaseState<MyGoogleMap> {
     String htmlId = "$location.hashCode";
 
     IFrameElement frame = IFrameElement();
-    // frame.height = "400";
-    // frame.width = "600";
     frame.src = location;
     frame.style.border = "none";
 

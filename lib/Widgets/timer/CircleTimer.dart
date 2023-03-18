@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Util/AnimateFlipCounter.dart';
-import '../Values/MyColors.dart';
-import '../base/BaseState.dart';
+import '../../Util/AnimateFlipCounter.dart';
+import '../../Values/MyColors.dart';
+import '../../base/BaseState.dart';
 
 class CircleTimer extends StatefulWidget {
   num timer;

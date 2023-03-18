@@ -2,15 +2,14 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:my_wedding_web/Pages/HomePage.dart';
 import 'package:my_wedding_web/Pages/InfoPage.dart';
-import 'package:my_wedding_web/Pages/PhotoPage.dart';
-import 'package:my_wedding_web/Widgets/HeaderButton.dart';
 import 'package:my_wedding_web/base/BaseState.dart';
 
-import '../Pages/MusicPage.dart';
-import '../Util/SizingInfo.dart';
-import '../Values/MyColors.dart';
-import '../Values/StringApp.dart';
-import 'mobile/MyAppBar.dart';
+import '../../Pages/MusicPage.dart';
+import '../../Util/SizingInfo.dart';
+import '../../Values/MyColors.dart';
+import '../../Values/StringApp.dart';
+import '../mobile/MyAppBar.dart';
+import 'HeaderButton.dart';
 
 class Header extends StatefulWidget implements PreferredSizeWidget {
   final double opacity;

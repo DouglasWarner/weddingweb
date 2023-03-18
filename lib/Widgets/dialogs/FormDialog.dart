@@ -14,6 +14,7 @@ class FormDialog extends BaseStateless {
   FormDialog({super.key});
 
   String nameText = "";
+  var nameTextController = TextEditingController();
   String guesses = "1";
   String messageText = "";
 
@@ -46,7 +47,7 @@ class FormDialog extends BaseStateless {
                           optional: false,
                           (value) {
                             nameText = value;
-                          },
+                          }, nameTextController
                         )),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -74,15 +75,14 @@ class FormDialog extends BaseStateless {
                           padding: const EdgeInsets.all(8.0),
                           child: CustomTextField(
                             label: "Mensaje",
-                            hint:
-                                "Algún dato que debamos saber como por ejemplo: alergenos, intolerancias, etc. O simplemente escribenos algo :)",
+                            hint: "Algún dato que debamos saber como por ejemplo: alergenos, intolerancias, etc. O simplemente escribenos algo :)",
                             minLines: 3,
                             maxLines: null,
                             expands: true,
                             optional: true,
                             (value) {
                               messageText = value;
-                            },
+                            }, TextEditingController()
                           )),
                     ),
                     FilledButton(
@@ -95,6 +95,8 @@ class FormDialog extends BaseStateless {
 
                               if (value.statusCode == 200) {
                                 await showDialog(context: context, builder: (context) => ConfirmDialog());
+                                nameText = "";
+                                nameTextController.clear();
                               } else {
                                 await showDialog(context: context, builder: (context) => ErrorDialog());
                               }

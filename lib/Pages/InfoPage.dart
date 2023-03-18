@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_wedding_web/Widgets/Header.dart';
-import 'package:my_wedding_web/Widgets/TabButton.dart';
+import 'package:my_wedding_web/Widgets/header/Header.dart';
+import 'package:my_wedding_web/Widgets/button/TabButton.dart';
 
 import '../Util/Keys.dart';
-import '../Widgets/InfoContent.dart';
+import '../Widgets/content/InfoContent.dart';
 import '../Widgets/mobile/MyDrawer.dart';
 import '../base/BaseState.dart';
 import '../model/InfoTabContent.dart';

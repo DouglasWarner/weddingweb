@@ -7,14 +7,15 @@ import '../../../base/BaseStateless.dart';
 
 class CustomTextField extends BaseStateless {
   final String label;
-  final String hint;
+  final String? hint;
   final int? minLines;
   final int? maxLines;
   final bool expands;
   final ValueChanged<String> onChanged;
   final bool optional;
+  final TextEditingController textEditingController;
 
-  CustomTextField(this.onChanged,
+  CustomTextField(this.onChanged, this.textEditingController,
       {super.key,
       required this.label,
       required this.hint,
@@ -27,6 +28,7 @@ class CustomTextField extends BaseStateless {
   Widget build(BuildContext context) {
     init(context);
     return TextField(
+      controller: textEditingController,
       onChanged: (value) => onChanged(value),
       // expands: expands,
       minLines: minLines,
