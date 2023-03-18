@@ -1,4 +1,3 @@
-import 'MyLocation.dart';
 
 class InfoTabContent {
   String title;
@@ -101,7 +100,7 @@ List<InfoTabContent> infoContent = [
   ),
 
   InfoTabContent(
-    title: "Miragal Fotografias",
+    title: "Miragal Fotografías",
     type: InfoType.Proveedores,
     url: "https://www.bodas.net/fotografos/miragal-fotografia--e85085",
     phone: null,
@@ -113,7 +112,7 @@ List<InfoTabContent> infoContent = [
   ),
 
   InfoTabContent(
-      title: "Fotomaton andalucia",
+      title: "Fotomaton Andalucía",
       type: InfoType.Proveedores,
       url: "https://fotomatonandalucia.com/",
       phone: null,
@@ -125,7 +124,7 @@ List<InfoTabContent> infoContent = [
   ),
 
   InfoTabContent(
-      title: "Mi dulce valeria",
+      title: "Mi Dulce Valeria",
       type: InfoType.Proveedores,
       url: "http://midulcevaleria.com/",
       phone: null,

@@ -2,12 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_wedding_web/Values/MyColors.dart';
-import 'package:my_wedding_web/Widgets/Map.dart';
-import 'package:my_wedding_web/model/MyLocation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../base/BaseStateless.dart';
-import '../model/InfoTabContent.dart';
+import '../../base/BaseStateless.dart';
+import '../../model/InfoTabContent.dart';
+import 'MyGoogleMap.dart';
+
 
 class InfoContent extends BaseStateless {
   InfoTabContent content;

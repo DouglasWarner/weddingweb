@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Values/MyColors.dart';
-import '../base/BaseState.dart';
+import '../../Values/MyColors.dart';
+import '../../base/BaseState.dart';
 
 class TabButton extends StatefulWidget {
   String title;

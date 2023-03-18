@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:my_wedding_web/Values/MyColors.dart';
@@ -7,10 +6,10 @@ import 'package:my_wedding_web/base/BaseState.dart';
 
 import '../Util/Keys.dart';
 import '../Values/MyImages.dart';
-import '../Widgets/CircleTimer.dart';
-import '../Widgets/Header.dart';
 import '../Widgets/dialogs/FormDialog.dart';
+import '../Widgets/header/Header.dart';
 import '../Widgets/mobile/MyDrawer.dart';
+import '../Widgets/timer/CircleTimer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
