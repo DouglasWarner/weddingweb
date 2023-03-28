@@ -1,14 +1,5 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-List<Music>? musicListFromJson(String str) => List.of(json.decode(str)).map((e) => Music.fromJson("", e)).toList();
-
-List<Map<String, Object>> musicListToJson(List<Music> data) => data.map((e) => e.toJson()).toList();
-
-Music musicFromJson(String str) => Music.fromJson("", json.decode(str));
-
-String musicToJson(Music data) => json.encode(data.toJson());
 
 class Music {
   String id;

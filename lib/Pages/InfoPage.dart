@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_wedding_web/Widgets/header/Header.dart';
 import 'package:my_wedding_web/Widgets/button/TabButton.dart';
+import 'package:my_wedding_web/Widgets/header/Header.dart';
 
+import '../Util/InfoRef.dart';
 import '../Util/Keys.dart';
 import '../Widgets/content/InfoContent.dart';
 import '../Widgets/mobile/MyDrawer.dart';
@@ -19,18 +20,14 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPage extends BaseState<InfoPage> {
+  List<InfoTabContent> content = InfoRef.listInfoContent.where((element) => element.type.index == 0).toList();
   int tabIndex = 0;
-  List<InfoTabContent> content = infoContent.where((element) {
-    return element.type.index == 0;
-  }).toList();
 
   onTap(int index) {
     setState(() {
       tabIndex = index;
 
-      content = infoContent.where((element) {
-        return element.type.index == tabIndex;
-      }).toList();
+      content = InfoRef.listInfoContent.where((element) => element.type.index == tabIndex).toList();
     });
   }
 
@@ -39,34 +36,33 @@ class _InfoPage extends BaseState<InfoPage> {
     init(context);
 
     return Scaffold(
-        key: infoScaffoldKey,
-        appBar: Header(opacity, InfoPage.index),
-        drawer: const MyDrawer(pageIndex: InfoPage.index),
-        backgroundColor: Colors.white,
-        body: ListView(
-            scrollDirection: Axis.vertical,
-            primary: true,
-            padding: responsiveApp.edgeInsetsApp.allLargeEdgeInsets,
-            children: List.generate(content.length + 1, (index) {
-              return (index == 0) ?
-                  GridView.builder(
-                    itemCount: InfoType.values.length,
-                    padding: responsiveApp.edgeInsetsApp.verticalSmallEdgeInsets,
-                    primary: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: responsiveApp.setWidth(400),
-                        mainAxisExtent: responsiveApp.setHeight(50),
-                        crossAxisSpacing: 8.0,
-                        mainAxisSpacing: 8.0), itemBuilder: (context, index) {
-                      return TabButton(index, InfoType.values[index].getString(), tabIndex, (value) => onTap(value));
-                    },
-                  )
-                : InfoContent(content: content[index-1]);
-              },
-            )
-        )
-    );
+        key: infoScaffoldKey, appBar: Header(opacity, InfoPage.index), drawer: const MyDrawer(pageIndex: InfoPage.index), backgroundColor: Colors.white, body: infoPageContent());
   }
+
+  Widget headerInfo() => GridView.builder(
+        itemCount: InfoType.values.length,
+        padding: responsiveApp.edgeInsetsApp.verticalSmallEdgeInsets,
+        primary: true,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: responsiveApp.setWidth(400), mainAxisExtent: responsiveApp.setHeight(50), crossAxisSpacing: 8.0, mainAxisSpacing: 8.0),
+        itemBuilder: (context, index) {
+          return TabButton(index, InfoType.values[index].getString(), tabIndex, (value) => onTap(value));
+        },
+      );
+
+  ListView infoPageContent() => ListView.builder(
+        scrollDirection: Axis.vertical,
+        primary: true,
+        padding: responsiveApp.edgeInsetsApp.allLargeEdgeInsets,
+        itemCount: content.length + 1,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return headerInfo();
+          } else {
+            return InfoContent(content: content[index - 1]);
+          }
+        },
+      );
 }

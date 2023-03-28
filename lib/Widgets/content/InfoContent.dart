@@ -55,6 +55,43 @@ class InfoContent extends BaseStateless {
               child: infoTextWithIcon(context, content.redSocial!),
             ): SizedBox(),
 
+            /*(content.images != null)
+                ? Padding(
+                    padding: responsiveApp.edgeInsetsApp.allMediumEdgeInsets,
+                    child: SizedBox(
+                      height: responsiveApp.setHeight(50),
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: content.images!.map((e){
+                          // TODO
+                          // final storageRef = FirebaseStorage.instance.ref();
+                            return Image.network(e,
+                              height: responsiveApp.setHeight(50),
+                              width: responsiveApp.setWidth(50),
+                              fit: BoxFit.fill,
+                              frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Padding(
+                                padding: responsiveApp.edgeInsetsApp.allSmallEdgeInsets,
+                                child: child,
+                              ),
+                              loadingBuilder: (context, child, loadingProgress) => Center(
+                                child: child,
+                              ),
+                            );
+                            //   Container(
+                          //   alignment: Alignment.center,
+                          //     decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(10)),
+                          //     height: responsiveApp.setHeight(50),
+                          //     width: responsiveApp.setWidth(50),
+                          //     child:
+                          // );
+                        }).toList()
+                      ),
+                    ),
+                  )
+                : */
+            SizedBox(),
+
             (content.direccion != null) ? Padding(
               padding: responsiveApp.edgeInsetsApp.allSmallEdgeInsets,
               child: locationInfo(context, content.direccion, content.mapLocation),

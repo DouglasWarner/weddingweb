@@ -5,6 +5,7 @@ import 'package:my_wedding_web/Pages/GuestListPage.dart';
 import 'package:my_wedding_web/Pages/InfoPage.dart';
 import 'package:my_wedding_web/Pages/MusicPage.dart';
 import 'package:my_wedding_web/Pages/PhotoPage.dart';
+import 'package:my_wedding_web/Util/InfoRef.dart';
 import 'package:my_wedding_web/base/BaseState.dart';
 
 import 'Pages/HomePage.dart';
@@ -14,11 +15,11 @@ import 'Values/MyColors.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  InfoRef.read();
   runApp(const MyApp());
 }
 
