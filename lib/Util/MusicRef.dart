@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../model/Music.dart';
 
@@ -8,16 +9,23 @@ class MusicRef {
         toFirestore: (value, _) => value.toJson(),
       );
 
-  static Future<List<Music>?> readMusicListFromFirebase() async {
-    /// A reference to the list of movies.
-    /// We are using `withConverter` to ensure that interactions with the collection
-    /// are type-safe.
-    var musicList = await musicRef.get();
+  static List<Music> listMusic = [];
+  static var loading = true;
 
-    return musicList.docs.map((e) => e.data()).toList();
+  static Future<List<Music>> readMusicListFromFirebase() async {
+    loading = true;
+
+    var result = await MusicRef.musicRef.orderBy('date', descending: true).get();
+    result.docs.map((e) => e.data()).toList().forEach((element) {
+      print(element.name);
+    });
+    listMusic = result.docs.map((e) => e.data()).toList();
+    loading = false;
+
+    return listMusic;
   }
 
-  static Future<void> writeMusicDataToFirebase(Music music) async {
+  static Future<List<Music>> writeMusicDataToFirebase(Music music) async {
     var musicList = await musicRef.get();
 
     var exists = musicList.docs.where((element) => element.data().name.trim().toLowerCase() == music.name.trim().toLowerCase());
@@ -26,9 +34,17 @@ class MusicRef {
     } else {
       await musicRef.doc(music.id).set(music);
     }
+
+    var result = await readMusicListFromFirebase();
+
+    return result;
   }
 
-  static Future<void> updateVoteToFirebase(Music music) async {
+  static Future<List<Music>> updateVoteToFirebase(Music music) async {
     await musicRef.doc(music.id).update({'votes': music.votes + 1});
+
+    var result = await readMusicListFromFirebase();
+
+    return result;
   }
 }
