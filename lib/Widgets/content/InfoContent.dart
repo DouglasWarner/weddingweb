@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_wedding_web/Values/MyColors.dart';
+import 'package:my_wedding_web/Widgets/common/MyImageWidget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../base/BaseStateless.dart';
@@ -55,41 +56,30 @@ class InfoContent extends BaseStateless {
               child: infoTextWithIcon(context, content.redSocial!),
             ): SizedBox(),
 
-            /*(content.images != null)
+            (content.images != null)
                 ? Padding(
                     padding: responsiveApp.edgeInsetsApp.allMediumEdgeInsets,
                     child: SizedBox(
-                      height: responsiveApp.setHeight(50),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: content.images!.map((e){
-                          // TODO
-                          // final storageRef = FirebaseStorage.instance.ref();
-                            return Image.network(e,
-                              height: responsiveApp.setHeight(50),
-                              width: responsiveApp.setWidth(50),
-                              fit: BoxFit.fill,
-                              frameBuilder: (context, child, frame, wasSynchronouslyLoaded) => Padding(
-                                padding: responsiveApp.edgeInsetsApp.allSmallEdgeInsets,
-                                child: child,
-                              ),
-                              loadingBuilder: (context, child, loadingProgress) => Center(
-                                child: child,
-                              ),
-                            );
-                            //   Container(
-                          //   alignment: Alignment.center,
-                          //     decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(10)),
-                          //     height: responsiveApp.setHeight(50),
-                          //     width: responsiveApp.setWidth(50),
-                          //     child:
-                          // );
-                        }).toList()
+                      height: responsiveApp.setHeight(200),
+                      child: ScrollConfiguration(
+                        behavior: ScrollConfiguration.of(context).copyWith(dragDevices: {
+                          PointerDeviceKind.touch,
+                          PointerDeviceKind.mouse,
+                        }),
+                        child: ListView(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            children: content.images!.map((url) {
+                              return Container(
+                                  alignment: Alignment.center,
+                                  padding: responsiveApp.edgeInsetsApp.horizontalSmallEdgeInsets,
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                                  child: MyImageWidget(imageUrl: url));
+                            }).toList()),
                       ),
                     ),
                   )
-                : */
+                :
             SizedBox(),
 
             (content.direccion != null) ? Padding(
@@ -97,7 +87,7 @@ class InfoContent extends BaseStateless {
               child: locationInfo(context, content.direccion, content.mapLocation),
             ): SizedBox(),
 
-            SizedBox(height: responsiveApp.setHeight(40),)
+            SizedBox(height: responsiveApp.setHeight(10),)
           ],
         )
     );

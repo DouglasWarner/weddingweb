@@ -20,7 +20,7 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPage extends BaseState<InfoPage> {
-  List<InfoTabContent> content = InfoRef.listInfoContent.where((element) => element.type.index == 0).toList();
+  List<InfoTabContent> content = []; //InfoRef.listInfoContent.where((element) => element.type.index == 0).toList();
   int tabIndex = 0;
 
   onTap(int index) {
@@ -29,6 +29,23 @@ class _InfoPage extends BaseState<InfoPage> {
 
       content = InfoRef.listInfoContent.where((element) => element.type.index == tabIndex).toList();
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (InfoRef.listInfoContent.isEmpty) {
+      InfoRef.read().then((value) {
+        setState(() {
+          content = value.where((element) => element.type.index == 0).toList();
+        });
+      });
+    } else {
+      setState(() {
+        content = InfoRef.listInfoContent.where((element) => element.type.index == 0).toList();
+      });
+    }
   }
 
   @override
